@@ -33,6 +33,7 @@
 		355510C01A266C1100C0EA72 /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 355510BB1A266C1100C0EA72 /* Level_4.json */; };
 		355510C21A266C8F00C0EA72 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355510C11A266C8F00C0EA72 /* Tile.swift */; };
 		355510C41A266F4900C0EA72 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355510C31A266F4900C0EA72 /* Extention.swift */; };
+		949701EE1A5FFBED00D1FD60 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949701ED1A5FFBED00D1FD60 /* Chain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		355510BB1A266C1100C0EA72 /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 		355510C11A266C8F00C0EA72 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		355510C31A266F4900C0EA72 /* Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		949701ED1A5FFBED00D1FD60 /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				355510AB1A26677500C0EA72 /* Level.swift */,
 				355510C11A266C8F00C0EA72 /* Tile.swift */,
 				354403211A27456300DF8587 /* Swap.swift */,
+				949701ED1A5FFBED00D1FD60 /* Chain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				355510AC1A26677500C0EA72 /* Cookie.swift in Sources */,
 				355510A81A26676500C0EA72 /* GameScene.swift in Sources */,
 				355510AD1A26677500C0EA72 /* Level.swift in Sources */,
+				949701EE1A5FFBED00D1FD60 /* Chain.swift in Sources */,
 				355510C21A266C8F00C0EA72 /* Tile.swift in Sources */,
 				354403221A27456300DF8587 /* Swap.swift in Sources */,
 				355510B01A2667AA00C0EA72 /* GameViewController.swift in Sources */,

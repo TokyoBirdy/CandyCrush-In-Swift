@@ -10,7 +10,7 @@ import SpriteKit
 
 
 enum CookieType:Int,Printable {
-    case unKnown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
+    case UnKnown = 0, Croissant, Cupcake, Danish, Donut, Macaroon, SugarCookie
     var spriteName:String {
         let spriteNames = ["Croissant",
             "Cupcake",

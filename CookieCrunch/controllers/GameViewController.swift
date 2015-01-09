@@ -15,7 +15,12 @@ class GameViewController: UIViewController {
     
     var scene:GameScene!
     var level:Level!
+    var moveLeft = 0
+    var score = 0
     
+    @IBOutlet var lblTarget: UILabel!
+    @IBOutlet var lblMoves: UILabel!
+    @IBOutlet var lblScore: UILabel!
     override func prefersStatusBarHidden()->Bool {
         return true
     }
@@ -47,7 +52,12 @@ class GameViewController: UIViewController {
     
     
     func beginGame(){
+        moveLeft = level.maximumMoves
+        score = 0
+        updateLabels()
+        level.resetComboMultiplier()
         shuffle()
+      
     }
     
     
@@ -61,9 +71,7 @@ class GameViewController: UIViewController {
         
         if level.isPossibleSwap(swap){
             level.performSwap(swap)
-            scene.animateSwap(swap,completion:{
-                self.view.userInteractionEnabled = true
-            })
+            scene.animateSwap(swap,completion:handleMatches)
         } else {
             scene.animateInvalidSwap(swap, completion:{
                 self.view.userInteractionEnabled = true
@@ -72,6 +80,45 @@ class GameViewController: UIViewController {
         }
     }
     
+    
+    func handleMatches(){
+        let chains = level.removeMatches()
+        if chains.count == 0 {
+            level.resetComboMultiplier()
+            beginNextTurn()
+            return
+        }
+        
+        scene.animateMatchedCookies(chains){
+            for chain in chains{
+                self.score += chain.score
+            }
+            self.updateLabels()
+            
+            let columns = self.level.fillHoles()
+            self.scene.animateFallingCookies(columns, completion: {
+                let columns = self.level.topUpCookies()
+                self.scene.animateNewCookies(columns, completion: {
+                    self.handleMatches()
+                })
+            })
+           
+        }
+    }
+    
+    func beginNextTurn() {
+        level.detectPossibleSwaps()
+        view.userInteractionEnabled = true
+    }
+    
+    
+    func updateLabels(){
+        lblTarget.text = NSString(format: "%ld", level.targetScore)
+        lblMoves.text = NSString(format: "%ld", moveLeft)
+        lblScore.text = NSString(format: "%ld", score)
+    }
+    
+  
     
     
 }
